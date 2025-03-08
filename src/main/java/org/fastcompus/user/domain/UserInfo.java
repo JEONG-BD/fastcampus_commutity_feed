@@ -13,4 +13,11 @@ public class UserInfo {
         this.profileImageUrl = profileImageUrl;
     }
 
+    public void follow(User targetUser){
+        if(targetUser.equals(this)){
+            throw new IllegalArgumentException();
+        }
+
+
+    }
 }

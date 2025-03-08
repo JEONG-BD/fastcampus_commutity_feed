@@ -50,4 +50,8 @@ public class User {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public Long getId() {
+        return id;
+    }
 }

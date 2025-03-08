@@ -1,14 +1,31 @@
 package org.fastcampus.post.domain;
 
-public class PostContent {
+import org.fastcampus.post.domain.content.Content;
 
-    private final String content;
+public class PostContent extends Content {
 
-    public PostContent(String content) {
+    private static final int MIN_POST_LENGTH = 5;
+    private static final int MAX_POST_LENGTH = 500;
 
-        if(content == null || content.length() < 5 || content.length() > 500 ){
+    public PostContent(String contentText) {
+        super(contentText);
+    }
+
+    @Override
+    public void checkText(String contentText) {
+
+        if(contentText == null){
             throw new IllegalArgumentException();
         }
-        this.content = content;
+        if(contentText.length() < MIN_POST_LENGTH){
+            throw new IllegalArgumentException();
+        }
+        if(contentText.length() > MAX_POST_LENGTH){
+            throw new IllegalArgumentException();
+        }
+
     }
+
+
+
 }

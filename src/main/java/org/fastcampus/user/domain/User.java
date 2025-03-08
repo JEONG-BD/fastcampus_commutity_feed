@@ -1,4 +1,4 @@
-package org.fastcompus.user.domain;
+package org.fastcampus.user.domain;
 
 import java.util.Objects;
 

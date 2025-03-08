@@ -1,6 +1,6 @@
-package org.fastcompus.post.domain;
+package org.fastcampus.post.domain;
 
-import org.fastcompus.user.domain.User;
+import org.fastcampus.user.domain.User;
 
 public class Post {
     private final User author;

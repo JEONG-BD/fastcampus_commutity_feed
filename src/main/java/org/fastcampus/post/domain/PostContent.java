@@ -1,4 +1,4 @@
-package org.fastcompus.post.domain;
+package org.fastcampus.post.domain;
 
 public class PostContent {
 

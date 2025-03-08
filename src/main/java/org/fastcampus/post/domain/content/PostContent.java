@@ -1,11 +1,13 @@
-package org.fastcampus.post.domain.comment;
+package org.fastcampus.post.domain.content;
 
 import org.fastcampus.post.domain.content.Content;
 
-public class CommentContent extends Content {
+public class PostContent extends Content {
 
-    private static final int MAX_POST_LENGTH = 100;
-    public CommentContent(String contentText) {
+    private static final int MIN_POST_LENGTH = 5;
+    private static final int MAX_POST_LENGTH = 500;
+
+    public PostContent(String contentText) {
         super(contentText);
     }
 
@@ -15,8 +17,15 @@ public class CommentContent extends Content {
         if(contentText == null){
             throw new IllegalArgumentException();
         }
+        if(contentText.length() < MIN_POST_LENGTH){
+            throw new IllegalArgumentException();
+        }
         if(contentText.length() > MAX_POST_LENGTH){
             throw new IllegalArgumentException();
         }
+
     }
+
+
+
 }

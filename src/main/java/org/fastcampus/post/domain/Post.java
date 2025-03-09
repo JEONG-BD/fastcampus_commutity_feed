@@ -45,5 +45,11 @@ public class Post {
         this.content.updateContent(updateContent);
     }
 
+    public int getLikeCount() {
+        return this.likeCount.getCount();
+    }
 
+    public String getContent() {
+        return content.getContentText();
+    }
 }

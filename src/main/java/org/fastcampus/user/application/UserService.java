@@ -18,4 +18,8 @@ public class UserService {
         User user = new User(null, info);
         return userRepository.save(user);
     }
+
+    public User getUser(Long userId){
+        return userRepository.getUser(userId).orElseThrow(IllegalArgumentException::new);
+    }
 }

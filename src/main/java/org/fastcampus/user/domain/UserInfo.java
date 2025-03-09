@@ -20,4 +20,8 @@ public class UserInfo {
 
 
     }
+
+    public String getName() {
+        return name;
+    }
 }

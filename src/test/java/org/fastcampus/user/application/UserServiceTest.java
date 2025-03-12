@@ -1,5 +1,6 @@
 package org.fastcampus.user.application;
 
+import org.fastcampus.fake.FakeObjectFactory;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
 import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.User;
@@ -12,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 
 public class UserServiceTest {
-    private final FakeUserRepository userRepository = new FakeUserRepository();
-    private final UserService userService = new UserService(userRepository);
+    //private final FakeUserRepository userRepository = new FakeUserRepository();
+    private final UserService userService = FakeObjectFactory.getUserService();
 
 
     @Test

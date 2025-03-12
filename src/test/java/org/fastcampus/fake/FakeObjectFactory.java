@@ -1,5 +1,6 @@
 package org.fastcampus.fake;
 
+import org.fastcampus.post.application.CommentService;
 import org.fastcampus.post.application.PostService;
 import org.fastcampus.post.application.interfaces.CommentRepository;
 import org.fastcampus.post.application.interfaces.LikeRepository;
@@ -25,6 +26,7 @@ public class FakeObjectFactory {
     private static final UserRelationService userRelationService = new UserRelationService(userService, fakeUserRelationRepository);
     private static final PostService postService = new PostService(userService, fakePostRepository, fakeLikeRepository);
 
+    private static final CommentService commentService = new CommentService(fakeCommentRepository, fakeLikeRepository, userService, postService);
 
     public FakeObjectFactory() {
     }
@@ -39,6 +41,10 @@ public class FakeObjectFactory {
 
     public static PostService getPostService(){
         return postService;
+    }
+
+    public static CommentService getCommentService(){
+        return commentService;
     }
 
 }

@@ -17,8 +17,9 @@ public class FakeCommentRepository implements CommentRepository {
             map.put(comment.getId(), comment);
         }
         long id = map.size() + 1;
-        Comment newComment =new Comment(id, comment.getPost(), comment.getAuthor(),  comment.getContentObj());
-        return map.put(id, newComment);
+        Comment newComment = new Comment(id, comment.getPost(), comment.getAuthor(),  comment.getContentObj());
+        map.put(id, newComment);
+        return newComment;
     }
 
     @Override

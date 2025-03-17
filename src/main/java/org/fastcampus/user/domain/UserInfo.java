@@ -1,5 +1,6 @@
 package org.fastcampus.user.domain;
 
+
 public class UserInfo {
     private final String name;
     private final String profileImageUrl;
@@ -17,11 +18,13 @@ public class UserInfo {
         if(targetUser.equals(this)){
             throw new IllegalArgumentException();
         }
-
-
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getProfileImageUrl(){
+        return profileImageUrl;
     }
 }

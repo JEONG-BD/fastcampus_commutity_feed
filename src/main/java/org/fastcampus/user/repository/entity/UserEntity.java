@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
+import org.fastcampus.common.repository.TimeBaseEntity;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
 
@@ -13,7 +14,7 @@ import org.fastcampus.user.domain.UserInfo;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class UserEntity {
+public class UserEntity extends TimeBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

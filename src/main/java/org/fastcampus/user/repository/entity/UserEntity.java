@@ -6,8 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.common.repository.TimeBaseEntity;
+import org.fastcampus.post.repository.entity.PostEntity;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "community_user")
@@ -23,6 +27,7 @@ public class UserEntity extends TimeBaseEntity {
     private String profileImage;
     private Integer followerCount;
     private Integer followingCount;
+
 
     public UserEntity(User user){
         this.id = user.getId();

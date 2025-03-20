@@ -1,4 +1,4 @@
-package org.fastcampus.post.repository.entity;
+package org.fastcampus.post.repository.entity.comment;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,6 +7,7 @@ import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.common.repository.TimeBaseEntity;
 import org.fastcampus.post.domain.comment.Comment;
 import org.fastcampus.post.domain.content.CommentContent;
+import org.fastcampus.post.repository.entity.post.PostEntity;
 import org.fastcampus.user.repository.entity.UserEntity;
 
 @Entity

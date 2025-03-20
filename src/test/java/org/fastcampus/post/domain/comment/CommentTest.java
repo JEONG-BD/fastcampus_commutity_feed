@@ -1,11 +1,8 @@
 package org.fastcampus.post.domain.comment;
 
 import org.fastcampus.post.domain.Post;
-import org.fastcampus.post.domain.content.CommentContent;
-import org.fastcampus.post.domain.content.Content;
 import org.fastcampus.post.domain.content.PostContent;
 import org.fastcampus.user.application.UserService;
-import org.fastcampus.user.application.UserServiceTest;
 import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;

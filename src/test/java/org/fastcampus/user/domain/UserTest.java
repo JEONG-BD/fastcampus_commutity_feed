@@ -1,6 +1,5 @@
 package org.fastcampus.user.domain;
 
-import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

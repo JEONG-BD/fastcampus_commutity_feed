@@ -1,15 +1,9 @@
 package org.fastcampus.post.application;
 
-import org.fastcampus.fake.FakeObjectFactory;
 import org.fastcampus.post.application.dto.LikeRequestDto;
-import org.fastcampus.post.application.dto.PostCreateRequestDto;
 import org.fastcampus.post.application.dto.PostUpdateRequestDto;
 import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.content.PostPublicationState;
-import org.fastcampus.user.application.UserService;
-import org.fastcampus.user.application.dto.UserCreateRequestDto;
-import org.fastcampus.user.domain.User;
-import org.fastcampus.user.domain.UserInfo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

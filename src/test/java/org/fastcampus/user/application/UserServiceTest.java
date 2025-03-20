@@ -2,10 +2,8 @@ package org.fastcampus.user.application;
 
 import org.fastcampus.fake.FakeObjectFactory;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
-import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
-import org.fastcampus.user.repository.FakeUserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;

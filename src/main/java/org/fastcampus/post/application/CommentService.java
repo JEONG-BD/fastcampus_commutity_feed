@@ -7,7 +7,6 @@ import org.fastcampus.post.application.interfaces.CommentRepository;
 import org.fastcampus.post.application.interfaces.LikeRepository;
 import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.comment.Comment;
-import org.fastcampus.post.domain.content.CommentContent;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.domain.User;
 

@@ -1,5 +1,6 @@
 package org.fastcampus.post.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
@@ -11,6 +12,7 @@ import org.fastcampus.user.domain.User;
 
 @Builder
 @Getter
+@AllArgsConstructor
 public class Post {
     private final Long id;
     private final User author;

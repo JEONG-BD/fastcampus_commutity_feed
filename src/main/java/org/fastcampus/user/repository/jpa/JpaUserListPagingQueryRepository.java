@@ -26,7 +26,7 @@ public class JpaUserListPagingQueryRepository {
         return jpaQueryFactory
                 .select(
                         Projections.fields(
-                                GetUserListResponseDto.class,
+                                GetUserListResponseDto.class
                         )
                 )
                 .from(relation)

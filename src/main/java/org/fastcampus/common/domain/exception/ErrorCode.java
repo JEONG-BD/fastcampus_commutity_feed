@@ -1,5 +1,8 @@
 package org.fastcampus.common.domain.exception;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorCode {
     INVALID_INPUT_VALUE(400, "invalid input value"),
     NOT_FOUND(404, "not found"),

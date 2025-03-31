@@ -4,8 +4,9 @@ import org.fastcampus.user.domain.User;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
 import org.fastcampus.user.application.interfaces.UserRepository;
 import org.fastcampus.user.domain.UserInfo;
+import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class UserService {
 
     private final UserRepository userRepository;

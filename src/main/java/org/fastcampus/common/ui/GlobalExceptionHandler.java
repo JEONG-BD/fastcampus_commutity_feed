@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
         return Response.error(ErrorCode.INTERNAL_ERROR);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
+    @ExceptionHandler(Exception.class)
     public Response<Void> handleException(Exception exception){
         log.error(exception.getMessage());
         return Response.error(ErrorCode.INTERNAL_ERROR);

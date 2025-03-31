@@ -5,6 +5,7 @@ import org.fastcampus.common.ui.Response;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.application.dto.GetUserListResponseDto;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
+import org.fastcampus.user.application.dto.UserGetResponseDto;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.repository.jpa.JpaUserListQueryRepository;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,12 @@ public class UserController {
     public Response<List<GetUserListResponseDto>> getFollowingList(@PathVariable(name = "userId") Long userId){
         List<GetUserListResponseDto> result = userListQueryRepository.getFollowingUserList(userId);
         return Response.ok(result);
+    }
+
+    @GetMapping("/{userId}")
+    public Response<UserGetResponseDto> getUserProfile(@PathVariable(name = "userId") Long userId){
+        UserGetResponseDto userProfile = userService.getUserProfile(userId);
+        return Response.ok(userProfile);
     }
 
 }

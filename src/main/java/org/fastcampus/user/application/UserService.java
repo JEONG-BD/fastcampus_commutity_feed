@@ -1,5 +1,6 @@
 package org.fastcampus.user.application;
 
+import org.fastcampus.user.application.dto.UserGetResponseDto;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
 import org.fastcampus.user.application.interfaces.UserRepository;
@@ -23,5 +24,12 @@ public class UserService {
 
     public User getUser(Long userId){
         return userRepository.findById(userId);
+    }
+
+
+    public UserGetResponseDto getUserProfile(Long userId){
+        User user = getUser(userId);
+        return new UserGetResponseDto(user);
+
     }
 }

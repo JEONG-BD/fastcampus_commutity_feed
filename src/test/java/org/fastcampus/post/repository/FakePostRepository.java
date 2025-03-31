@@ -23,7 +23,7 @@ public class FakePostRepository implements PostRepository {
     }
 
     @Override
-    public Optional<Post> findById(Long id) {
-        return Optional.ofNullable(map.get(id));
+    public Post findById(Long id) {
+        return map.get(id);
     }
 }

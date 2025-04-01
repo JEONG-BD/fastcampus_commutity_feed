@@ -9,7 +9,9 @@ import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.content.PostContent;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PostService {
 
     private final UserService userService;
@@ -17,7 +19,7 @@ public class PostService {
     private final LikeRepository likeRepository;
     public PostService(UserService userService,
                        PostRepository postRepository,
-                        LikeRepository likeRepository) {
+                       LikeRepository likeRepository) {
 
         this.userService = userService;
         this.postRepository = postRepository;
@@ -30,16 +32,18 @@ public class PostService {
 
     public Post createPost(PostCreateRequestDto dto){
         User author = userService.getUser(dto.userId());
-        PostContent postContent = new PostContent(dto.content());
-        //Post post = new Post((Long)null, author, postContent, dto.state());
-        Post post = Post.createPost((Long)null, author, dto.content(), dto.state());
+        //PostContent postContent = new PostContent(dto.content());
+        Post post = new Post((Long)null, author, dto.content());
+        //Post post = Post.createPost(null, author, dto.content(), dto.state());
         return postRepository.save(post);
     }
 
-    public Post updatePost(Long postId, PostUpdateRequestDto dto){
-        Post post = getPost(postId);
+    public Post updatePost(PostUpdateRequestDto dto){
+        Post post = getPost(dto.postId());
         User user = userService.getUser(dto.userId());
-        post.updatePost(user, dto.content(), dto.state());
+        //post.updatePost(user, dto.content(), dto.state());
+        post.updateContent(user, dto.content(), dto.state());
+
         return postRepository.save(post);
     }
 

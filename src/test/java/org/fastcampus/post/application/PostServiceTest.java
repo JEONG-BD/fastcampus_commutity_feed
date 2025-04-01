@@ -42,7 +42,7 @@ public class PostServiceTest extends PostApplicationTestTemplate{
                 PostPublicationState.PUBLIC);
 
         //when
-        Post updatedPost = postService.updatePost(savedPost.getId(), updateDto);
+        Post updatedPost = postService.updatePost(updateDto);
 
         //then
         Assertions.assertEquals(newConent, updatedPost.getContent());

@@ -1,5 +1,6 @@
 package org.fastcampus.post.application;
 
+import lombok.RequiredArgsConstructor;
 import org.fastcampus.post.application.dto.CommentCreateRequestDto;
 import org.fastcampus.post.application.dto.CommentUpdateRequestDto;
 import org.fastcampus.post.application.dto.LikeRequestDto;
@@ -9,13 +10,15 @@ import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.comment.Comment;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.domain.User;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CommentService {
 
     private final CommentRepository commentRepository;
     private final LikeRepository likeRepository;
     private final UserService userService;
-
     private final PostService postService;
 
     public CommentService(CommentRepository commentRepository, LikeRepository likeRepository, UserService userService, PostService postService) {

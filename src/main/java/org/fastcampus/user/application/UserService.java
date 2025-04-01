@@ -1,5 +1,6 @@
 package org.fastcampus.user.application;
 
+import lombok.RequiredArgsConstructor;
 import org.fastcampus.user.application.dto.UserGetResponseDto;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.application.dto.UserCreateRequestDto;
@@ -8,13 +9,14 @@ import org.fastcampus.user.domain.UserInfo;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+//
+//    public UserService(UserRepository userRepository) {
+//        this.userRepository = userRepository;
+//    }
 
     public User createUser(UserCreateRequestDto dto){
         UserInfo info = new UserInfo(dto.name(), dto.profileImageUrl());

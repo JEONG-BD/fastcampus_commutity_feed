@@ -10,9 +10,10 @@ import org.fastcampus.post.domain.content.PostPublicationState;
 import org.fastcampus.user.domain.User;
 
 
-@Builder
+//@Builder
+//@Getter
+//@AllArgsConstructor
 @Getter
-@AllArgsConstructor
 public class Post {
     private final Long id;
     private final User author;
@@ -21,27 +22,33 @@ public class Post {
     private PostPublicationState state;
 
     public Post(Long id, User author, Content content) {
-        this(id, author, content, PostPublicationState.PUBLIC);
+        this(id, author, content, PostPublicationState.PUBLIC, new PositiveIntegerCounter());
     }
 
+    public Post(Long id, User author, String content) {
+        this(id, author, new PostContent(content), PostPublicationState.PUBLIC, new PositiveIntegerCounter());
+    }
+
+
     public static Post createPost(Long id, User author, String content, PostPublicationState state){
-        return new Post(id, author, new PostContent(content), PostPublicationState.PUBLIC);
+        return new Post(id, author, new PostContent(content), PostPublicationState.PUBLIC, new PositiveIntegerCounter());
     }
 
 
     public static Post createDefaultPost(Long id, User author, String content){
-        return new Post(id, author, new PostContent(content), PostPublicationState.PUBLIC);
+        return new Post(id, author, new PostContent(content), PostPublicationState.PUBLIC, new PositiveIntegerCounter());
     }
 
-    public Post(Long id, User author, Content content, PostPublicationState state) {
+    @Builder
+    public Post(Long id, User author, Content content, PostPublicationState state, PositiveIntegerCounter positiveIntegerCounter) {
         if(author == null){
             throw new IllegalArgumentException();
         }
         this.id = id;
         this.author = author;
         this.content = content;
-        this.likeCount = new PositiveIntegerCounter();
-        this.state = PostPublicationState.PUBLIC;
+        this.likeCount = positiveIntegerCounter;
+        this.state = state;
     }
 
     public void like(User user){
@@ -61,6 +68,18 @@ public class Post {
             throw new IllegalArgumentException();
         }
         this.state = state;
+        this.content.updateContent(updateContent);
+    }
+
+    public void updateContent(User user, String updateContent, PostPublicationState state){
+        if(!this.author.equals(user)){
+            throw new IllegalArgumentException();
+        }
+
+        if (state == null){
+           this.state = PostPublicationState.PUBLIC;
+        }
+
         this.content.updateContent(updateContent);
     }
 

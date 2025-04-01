@@ -3,6 +3,7 @@ package org.fastcampus.post.repository.entity.post;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.common.repository.TimeBaseEntity;
@@ -14,6 +15,7 @@ import org.fastcampus.user.repository.entity.UserEntity;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @Table(name = "community_post")
 public class PostEntity extends TimeBaseEntity {
 
@@ -27,7 +29,7 @@ public class PostEntity extends TimeBaseEntity {
     @Convert(converter = PostPublicationStateConverter.class)
     private PostPublicationState state;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="author_id", foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     private UserEntity author;
 
@@ -45,7 +47,7 @@ public class PostEntity extends TimeBaseEntity {
                 .author(author.toUser())
                 .content(new PostContent(content))
                 .state(state)
-                .likeCount(new PositiveIntegerCounter(likeCount))
+                .positiveIntegerCounter(new PositiveIntegerCounter(likeCount))
                 .build();
     }
 }

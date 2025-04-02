@@ -3,6 +3,7 @@ package org.fastcampus.post.repository;
 import lombok.RequiredArgsConstructor;
 import org.fastcampus.post.application.interfaces.CommentRepository;
 import org.fastcampus.post.domain.comment.Comment;
+import org.fastcampus.post.repository.entity.comment.CommentEntity;
 import org.fastcampus.post.repository.jpa.JpaCommentRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,11 +18,18 @@ public class CommentRepositoryImpl implements CommentRepository {
 
     @Override
     public Comment save(Comment comment) {
-        return null;
+        CommentEntity commentEntity = new CommentEntity(comment);
+        if(comment.getId() != null){
+            jpaCommentRepository.updateCommentEntity(commentEntity);
+            return comment;
+        }
+        jpaCommentRepository.save(commentEntity);
+        return commentEntity.toComment();
     }
 
     @Override
-    public Optional<Comment> findById(Long commentId) {
-        return Optional.empty();
+    public Comment findById(Long commentId) {
+        CommentEntity commentEntity = jpaCommentRepository.findById(commentId).orElseThrow();
+        return commentEntity.toComment();
     }
 }

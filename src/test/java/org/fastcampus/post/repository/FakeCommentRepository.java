@@ -23,7 +23,7 @@ public class FakeCommentRepository implements CommentRepository {
     }
 
     @Override
-    public Optional<Comment> findById(Long commentId) {
-        return Optional.ofNullable(map.get(commentId));
+    public Comment findById(Long commentId) {
+        return map.get(commentId);
     }
 }

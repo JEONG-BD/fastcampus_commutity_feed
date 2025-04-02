@@ -2,6 +2,7 @@ package org.fastcampus.post.repository.entity.comment;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.common.repository.TimeBaseEntity;
@@ -14,6 +15,7 @@ import org.fastcampus.user.repository.entity.UserEntity;
 @Table(name = "community_comment")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 
 public class CommentEntity extends TimeBaseEntity {
 

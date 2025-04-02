@@ -10,7 +10,6 @@ import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.comment.Comment;
 import org.fastcampus.user.application.UserService;
 import org.fastcampus.user.domain.User;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,7 +28,7 @@ public class CommentService {
     }
 
     public Comment getComment(Long id){
-        return commentRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return commentRepository.findById(id);
     }
 
     public Comment createComment(CommentCreateRequestDto dto){
@@ -40,9 +39,9 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public Comment update(CommentUpdateRequestDto dto){
+    public Comment update(Long commentId, CommentUpdateRequestDto dto){
         User user = userService.getUser(dto.userId());
-        Comment comment = getComment(dto.commentId());
+        Comment comment = getComment(commentId);
         comment.updateComment(user, dto.content());
         return commentRepository.save(comment);
     }

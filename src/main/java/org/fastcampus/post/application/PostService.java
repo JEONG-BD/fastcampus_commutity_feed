@@ -27,7 +27,7 @@ public class PostService {
     }
 
     public Post getPost(Long id){
-        return postRepository.findById(id);
+         return postRepository.findById(id);
     }
 
     public Post createPost(PostCreateRequestDto dto){

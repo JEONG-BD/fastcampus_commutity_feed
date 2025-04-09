@@ -1,5 +1,6 @@
 package org.fastcampus.post.repository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.fastcampus.post.application.interfaces.CommentRepository;
 import org.fastcampus.post.domain.comment.Comment;
@@ -17,6 +18,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     private final JpaCommentRepository jpaCommentRepository;
 
     @Override
+    @Transactional
     public Comment save(Comment comment) {
         CommentEntity commentEntity = new CommentEntity(comment);
         if(comment.getId() != null){

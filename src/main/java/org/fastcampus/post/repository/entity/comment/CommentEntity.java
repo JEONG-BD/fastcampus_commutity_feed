@@ -47,6 +47,7 @@ public class CommentEntity extends TimeBaseEntity {
     public Comment toComment(){
         return Comment.builder()
                 .id(id)
+                .author(author.toUser())
                 .post(post.toPost())
                 .content(new CommentContent(content))
                 .likeCount(new PositiveIntegerCounter(likeCount))

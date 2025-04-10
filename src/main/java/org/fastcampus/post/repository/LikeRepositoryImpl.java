@@ -38,8 +38,8 @@ public class LikeRepositoryImpl implements LikeRepository {
     @Transactional
     public void like(Post post, User user) {
         LikeEntity likeEntity = new LikeEntity(post, user);
-        entityManager.persist(likeEntity);
-        //jpaLikeRepository.save(likeEntity);
+        //entityManager.persist(likeEntity);
+        jpaLikeRepository.save(likeEntity);
         jpaPostRepository.updatePostLike(new PostEntity(post));
     }
 
@@ -61,8 +61,8 @@ public class LikeRepositoryImpl implements LikeRepository {
     @Transactional
     public void like(Comment comment, User user) {
         LikeEntity likeEntity = new LikeEntity(comment, user);
-        //jpaLikeRepository.save(likeEntity);
-        entityManager.persist(likeEntity);
+        jpaLikeRepository.save(likeEntity);
+        //entityManager.persist(likeEntity);
         jpaCommentRepository.updateCommentEntity(new CommentEntity(comment));
     }
 

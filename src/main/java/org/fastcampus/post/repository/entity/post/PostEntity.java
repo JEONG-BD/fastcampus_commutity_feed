@@ -24,6 +24,7 @@ public class PostEntity extends TimeBaseEntity {
     private Long id;
 
     private String content;
+
     private Integer likeCount;
 
     @Convert(converter = PostPublicationStateConverter.class)

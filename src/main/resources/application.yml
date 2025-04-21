@@ -1,4 +1,5 @@
 spring:
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3307/community_feed
@@ -13,3 +14,6 @@ spring:
       hibernate:
         format_sql: true
     open-in-view: false
+logging:
+  level:
+    root: DEBUG

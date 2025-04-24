@@ -11,6 +11,6 @@ public interface JpaUserRelationRepository extends JpaRepository<UserRelationEnt
 
     @Query("SELECT u.followingUserId " +
             " FROM UserRelationEntity  u " +
-            " WHERE u.followerUserId = : userId" )
+            " WHERE u.followerUserId = :userId" )
     List<Long> findFollowers(Long userId);
 }

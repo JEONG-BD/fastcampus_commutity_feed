@@ -40,7 +40,7 @@ public class LikeRepositoryImpl implements LikeRepository {
         LikeEntity likeEntity = new LikeEntity(post, user);
         //entityManager.persist(likeEntity);
         jpaLikeRepository.save(likeEntity);
-        jpaPostRepository.updatePostLike(new PostEntity(post));
+        jpaPostRepository.updatePostLike(post.getId(), 1);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class LikeRepositoryImpl implements LikeRepository {
     public void unlike(Post post, User user) {
         LikeEntity likeEntity = new LikeEntity(post, user);
         jpaLikeRepository.deleteById(likeEntity.getId());
-        jpaPostRepository.updatePostLike(new PostEntity(post));
+        jpaPostRepository.updatePostLike(post.getId(), -1);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class LikeRepositoryImpl implements LikeRepository {
         LikeEntity likeEntity = new LikeEntity(comment, user);
         jpaLikeRepository.save(likeEntity);
         //entityManager.persist(likeEntity);
-        jpaCommentRepository.updateCommentEntity(new CommentEntity(comment));
+        jpaCommentRepository.updateLikeCount(comment.getId(), 1);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class LikeRepositoryImpl implements LikeRepository {
     public void unlike(Comment comment, User user) {
         LikeEntity likeEntity = new LikeEntity(comment, user);
         jpaLikeRepository.deleteById(likeEntity.getId());
-        jpaCommentRepository.updateCommentEntity(new CommentEntity(comment));
+        jpaCommentRepository.updateLikeCount(comment.getId(), -1);
 
     }
 }

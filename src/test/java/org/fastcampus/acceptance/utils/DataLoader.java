@@ -12,9 +12,9 @@ import static org.fastcampus.acceptance.steps.UserAcceptanceStep.followUser;
 @Component
 public class DataLoader {
 
-    //@PersistenceContext
-    //private EntityManager entityManager;
-    //
+    @PersistenceContext
+    private EntityManager entityManager;
+
     public void loadData(){
         UserCreateRequestDto dto = new UserCreateRequestDto("test user", "");
         createUser(dto);
@@ -23,7 +23,14 @@ public class DataLoader {
 
         followUser(new FollowUserRequestDto(1L, 2L));
         followUser(new FollowUserRequestDto(2L, 3L));
+    }
 
-
+    public String getEmailToken(String email){
+        return entityManager.createNativeQuery("SELECT token " +
+                "FROM community_email_verification " +
+                "WHERE email = ? " , String.class)
+                .setParameter(1, email)
+                .getSingleResult()
+                .toString();
     }
 }

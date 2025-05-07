@@ -16,4 +16,4 @@ spring:
     open-in-view: false
 logging:
   level:
-    root: DEBUG
+    root: INFO

@@ -17,11 +17,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FeedController {
 
-    private final UserPostQueueQueryRepository userPostQueueQueryRepository;
+    //private final UserPostQueueQueryRepository userPostQueueQueryRepository;
 
-    @GetMapping("/{userId}")
-    public Response<List<GetPostResponseDto>> getPostFeed(@PathVariable(name = "userId") Long userId, Long lastPostId){
-        List<GetPostResponseDto> result = userPostQueueQueryRepository.getContentResponse(userId, lastPostId);
-        return Response.ok(result);
-    }
+    //@GetMapping("/{userId}")
+    //public Response<List<GetPostResponseDto>> getPostFeed(@PathVariable(name = "userId") Long userId, Long lastPostId){
+    //    List<GetPostResponseDto> result = userPostQueueQueryRepository.getContentResponse(userId, lastPostId);
+    //    return Response.ok(result);
+    //}
 }

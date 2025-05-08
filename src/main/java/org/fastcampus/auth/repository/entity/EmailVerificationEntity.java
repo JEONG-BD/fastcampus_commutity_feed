@@ -31,5 +31,9 @@ public class EmailVerificationEntity {
     public void verify(){
         this.isVerified = true;
     }
+
+    public void updateToken(String token){
+        this.token = token;
+    }
 }
 

@@ -20,4 +20,8 @@ public class Password {
     public boolean matchPassword(String password){
         return  encryptPassword.matches(SHA256.encrypt(password));
     }
+
+    public String getEncryptPassword() {
+        return encryptPassword;
+    }
 }

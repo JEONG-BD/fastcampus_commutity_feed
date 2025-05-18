@@ -47,6 +47,19 @@ public class SingAcceptanceTest extends AcceptanceTestTemplate {
         assertNotEquals(400, code);
     }
 
+
+    @Test
+    void givenInvalidEmail_whenSendEmail_thenVerificationTokenSaved() {
+        // given
+        SendEmailRequestDto dto = new SendEmailRequestDto("invalid email");
+
+        // when
+        Integer code = requestSendEmail(dto);
+
+        // then
+        assertEquals(400, code);
+    }
+
     @Test
     void givenSendEmail_whenVerifyEmail_thenEmailVerified() {
         // given
@@ -76,7 +89,6 @@ public class SingAcceptanceTest extends AcceptanceTestTemplate {
         assertFalse(isEmailVerified);
     }
 
-
     @Test
     void givenSendEmailVerified_whenVerifyAgain_thenThrowError() {
         // given
@@ -88,7 +100,7 @@ public class SingAcceptanceTest extends AcceptanceTestTemplate {
         Integer code = requestVerifyEmail(email, token);
 
         // then
-        assertEquals(   500, code);
+        assertEquals(500, code);
     }
 
     @Test
@@ -100,7 +112,7 @@ public class SingAcceptanceTest extends AcceptanceTestTemplate {
         Integer code = requestVerifyEmail("wrong email", "token");
 
         // then
-        assertEquals(500, code);
+        assertEquals(400, code);
     }
 
     @Test

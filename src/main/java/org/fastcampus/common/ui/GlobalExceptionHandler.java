@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public Response<Void> handleIllegalArgumentException(IllegalArgumentException exception){
 
-        return Response.error(ErrorCode.INTERNAL_ERROR);
+        return Response.error(ErrorCode.INVALID_INPUT_VALUE);
     }
 
     @ExceptionHandler(Exception.class)

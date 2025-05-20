@@ -2,6 +2,8 @@ package org.fastcampus.post.ui;
 
 
 import lombok.RequiredArgsConstructor;
+import org.fastcampus.common.principan.AuthPrincipal;
+import org.fastcampus.common.principan.UserPrincipal;
 import org.fastcampus.common.ui.Response;
 import org.fastcampus.post.repository.post_queue.UserPostQueueQueryRepository;
 import org.fastcampus.post.ui.dto.GetPostResponseDto;
@@ -17,11 +19,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FeedController {
 
-    //private final UserPostQueueQueryRepository userPostQueueQueryRepository;
+    private final UserPostQueueQueryRepository userPostQueueQueryRepository;
 
     //@GetMapping("/{userId}")
     //public Response<List<GetPostResponseDto>> getPostFeed(@PathVariable(name = "userId") Long userId, Long lastPostId){
     //    List<GetPostResponseDto> result = userPostQueueQueryRepository.getContentResponse(userId, lastPostId);
     //    return Response.ok(result);
     //}
+
+    @GetMapping("")
+    public Response<List<GetPostResponseDto>> getPostFeed(@AuthPrincipal UserPrincipal user, Long lastPostId){
+        List<GetPostResponseDto> result = userPostQueueQueryRepository.getContentResponse(user.getUserId(), lastPostId);
+        return Response.ok(result);
+    }
+
 }

@@ -17,3 +17,5 @@ spring:
 logging:
   level:
     root: INFO
+
+secret-key : thisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkeythisisecretkey

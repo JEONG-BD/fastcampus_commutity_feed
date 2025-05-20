@@ -1,6 +1,7 @@
 package org.fastcampus.admin.ui;
 
 import lombok.RequiredArgsConstructor;
+import org.fastcampus.admin.ui.query.UserStatsQueryRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,13 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class AdminController {
 
+    private final UserStatsQueryRepository userStatsQueryRepository;
+
     @GetMapping("/index")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-        modelAndView.addObject("result", new ArrayList<>());
+        modelAndView.addObject("result", userStatsQueryRepository.getDailyRegisterUserStates(7));
         return modelAndView;
 
     }

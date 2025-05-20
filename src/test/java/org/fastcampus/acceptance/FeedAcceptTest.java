@@ -16,9 +16,12 @@ import static org.fastcampus.acceptance.steps.FeedAcceptanceSteps.requestFeed;
 
 public class FeedAcceptTest extends AcceptanceTestTemplate {
 
+    private String token;
+
     @BeforeEach
     void setUp(){
         super.init();
+        this.token = login("user"+1+"@testcom");
     }
 
     @Test

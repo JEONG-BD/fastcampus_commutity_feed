@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
 
-    //@GetMapping("/index")
-    //public ModelAndView index() {
-    //    ModelAndView modelAndView = new ModelAndView();
-    //    modelAndView.setViewName("index");
-    //    return modelAndView;
-    //
-    //}
-
     @GetMapping("/index")
     public ModelAndView index() {
-        return new ModelAndView("index"); // templates/index.html 렌더링
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        modelAndView.addObject("result", new ArrayList<>());
+        return modelAndView;
+
     }
+
 
 
 }

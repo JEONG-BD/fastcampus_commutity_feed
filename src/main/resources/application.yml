@@ -5,6 +5,9 @@ spring:
     url: jdbc:mysql://localhost:3307/community_feed
     username: root
     password: root
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 
   jpa:
     show-sql: true

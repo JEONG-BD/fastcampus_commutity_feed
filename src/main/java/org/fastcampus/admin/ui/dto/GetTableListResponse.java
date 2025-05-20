@@ -5,16 +5,14 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class GetDailyRegisterUserResponseDto {
+public class GetTableListResponse<T> {
 
-    private LocalDate date;
-    private Long count;
-
-
+    private int totalCount;
+    private List<T> tableDate;
 }

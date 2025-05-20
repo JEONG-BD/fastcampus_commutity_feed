@@ -1,6 +1,10 @@
 package org.fastcampus.admin.ui;
 
 import lombok.RequiredArgsConstructor;
+import org.fastcampus.admin.ui.dto.GetTableListResponse;
+import org.fastcampus.admin.ui.dto.users.GetUserTableRequestDto;
+import org.fastcampus.admin.ui.dto.users.GetUserTableResponseDto;
+import org.fastcampus.admin.ui.query.AdminTableQueryRepository;
 import org.fastcampus.admin.ui.query.UserStatsQueryRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +20,7 @@ import java.util.ArrayList;
 public class AdminController {
 
     private final UserStatsQueryRepository userStatsQueryRepository;
+    private final AdminTableQueryRepository adminTableQueryRepository;
 
     @GetMapping("/index")
     public ModelAndView index() {
@@ -23,7 +28,19 @@ public class AdminController {
         modelAndView.setViewName("index");
         modelAndView.addObject("result", userStatsQueryRepository.getDailyRegisterUserStates(7));
         return modelAndView;
+    }
 
+    @GetMapping("/users")
+    public ModelAndView users(GetUserTableRequestDto dto){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("users");
+
+        GetTableListResponse<GetUserTableResponseDto> result = adminTableQueryRepository.getUserTableDate(dto);
+
+        modelAndView.addObject("requestDto", dto);
+        modelAndView.addObject("userList", result.getTableDate());
+        modelAndView.addObject("totalCount", result.getTotalCount());
+        return modelAndView;
     }
 
 

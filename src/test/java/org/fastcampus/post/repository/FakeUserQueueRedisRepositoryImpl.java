@@ -9,7 +9,7 @@ import java.util.*;
 
 @Repository
 @Profile("test")
-public class FakeUserQueueRedisRepository implements UserQueueRedisRepository {
+public class FakeUserQueueRedisRepositoryImpl implements UserQueueRedisRepository {
 
     private final Map<Long, Set<PostEntity>> queue = new HashMap<>();
 

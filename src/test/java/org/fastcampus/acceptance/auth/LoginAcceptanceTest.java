@@ -5,6 +5,7 @@ import org.fastcampus.acceptance.utils.AcceptanceTestTemplate;
 import org.fastcampus.auth.application.dto.CreateUserAuthRequestDto;
 import org.fastcampus.auth.application.dto.LoginRequestDto;
 import org.fastcampus.auth.application.dto.SendEmailRequestDto;
+import org.fastcampus.auth.domain.TokenProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class LoginAcceptanceTest extends AcceptanceTestTemplate {
 
     private final String email = "email@email.com";
-    //private final TokenProvider tokenProvider = new TokenProvider("testteststestteststestteststestteststestteststestteststestteststestteststestteststesttests");
+    private final TokenProvider tokenProvider = new TokenProvider("testteststestteststestteststestteststestteststestteststestteststestteststestteststesttests");
     @BeforeEach
     void setUp(){
         this.cleanUp();
